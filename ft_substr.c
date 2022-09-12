@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/10 14:03:37 by etachott          #+#    #+#             */
-/*   Updated: 2022/09/11 14:57:44 by etachott         ###   ########.fr       */
+/*   Created: 2022/09/12 19:22:03 by coder             #+#    #+#             */
+/*   Updated: 2022/09/12 20:17:50 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*original;
-	char	*sub;
-	size_t	i;
+	char			*sub;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	k;
 
 	i = 0;
-	original = (char *) s;
-	if (len > ft_strlen(s))
+	j = 0;
+	if (start > ft_strlen(s))
+		start = ft_strlen(s);
+	k = start;
+	while (len && s[k++])
 	{
-		sub = malloc(1);
-		sub[i] = '\0';
-		return (sub);
+		i++;
+		len--;
 	}
-	sub = malloc(sizeof(char) * len + 1);
-	while (len--)
-		*(sub + i++) = *(original + start++);
+	sub = malloc(sizeof(char) * i + 1);
+	while (j < i)
+		*(sub + j++) = *(s + start++);
 	*(sub + i) = '\0';
 	return (sub);
 }

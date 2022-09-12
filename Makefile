@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:51:38 by coder             #+#    #+#              #
-#    Updated: 2022/09/12 11:36:27 by etachott         ###   ########.fr        #
+#    Updated: 2022/09/12 17:15:32 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,11 @@ SRCS = $(addprefix $(PATH_SRCS), ft_atoi.c \
 	   ft_strlcat.c    \
 	   ft_strlcpy.c    \
 	   ft_strlen.c     \
+	   ft_strmapi.c    \
 	   ft_strncmp.c    \
 	   ft_strnstr.c    \
 	   ft_strrchr.c    \
+	   ft_strtrim.c    \
 	   ft_substr.c     \
 	   ft_tolower.c    \
 	   ft_toupper.c)
@@ -69,6 +71,7 @@ OBJS = ft_atoi.o       \
 	   ft_putendl_fd.o \
 	   ft_putnbr_fd.o  \
 	   ft_putstr_fd.o  \
+	   ft_strmapi.o    \
 	   ft_split.o      \
 	   ft_strchr.o     \
 	   ft_strdup.o     \
@@ -80,6 +83,7 @@ OBJS = ft_atoi.o       \
 	   ft_strncmp.o    \
 	   ft_strnstr.o    \
 	   ft_strrchr.o    \
+	   ft_strtrim.o    \
 	   ft_substr.o     \
 	   ft_tolower.o    \
 	   ft_toupper.o 
