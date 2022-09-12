@@ -6,23 +6,28 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 21:30:25 by coder             #+#    #+#             */
-/*   Updated: 2022/09/08 21:09:23 by coder            ###   ########.fr       */
+/*   Updated: 2022/09/11 14:58:59 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//atic char	*reverse_len(const char *haystack, const char *needle, size_t len);
-//atic char	*returns(size_t len, char *pos, const char *hay, const char *n);
-
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	jj;
+	size_t	i;
 	char	*h;
 
-	jj = len;
+	i = 0;
 	h = (char *) haystack;
-	if (ft_strchr(haystack, needle[0]))
+	if (!ft_strlen(needle))
 		return (h);
-	return (NULL);
+	if (!len)
+		return (0);
+	while (i + ft_strlen(needle) <= len && h[i])
+	{
+		if (!ft_strncmp(&h[i], needle, ft_strlen(needle)))
+			return (&h[i]);
+		i++;
+	}
+	return (0);
 }
