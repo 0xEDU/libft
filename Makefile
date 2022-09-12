@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:51:38 by coder             #+#    #+#              #
-#    Updated: 2022/09/11 15:15:26 by etachott         ###   ########.fr        #
+#    Updated: 2022/09/12 11:36:27 by etachott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS = $(addprefix $(PATH_SRCS), ft_atoi.c \
 	   ft_split.c      \
 	   ft_strchr.c     \
 	   ft_strdup.c     \
+	   ft_striteri.c   \
 	   ft_strjoin.c    \
 	   ft_strlcat.c    \
 	   ft_strlcpy.c    \
@@ -71,6 +72,7 @@ OBJS = ft_atoi.o       \
 	   ft_split.o      \
 	   ft_strchr.o     \
 	   ft_strdup.o     \
+	   ft_striteri.o   \
 	   ft_strjoin.o    \
 	   ft_strlcat.o    \
 	   ft_strlcpy.o    \
