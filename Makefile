@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:51:38 by coder             #+#    #+#              #
-#    Updated: 2022/09/13 17:30:57 by coder            ###   ########.fr        #
+#    Updated: 2022/09/13 21:37:50 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
 $(OBJS): $(SRCS)
-	gcc $(CCFLAGS) -I $(PATH_INCL) -c $(SRCS)
+	cc $(CCFLAGS) -I $(PATH_INCL) -c $(SRCS)
 
 clean:
 	/bin/rm -f *.o
