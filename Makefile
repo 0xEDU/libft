@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:51:38 by coder             #+#    #+#              #
-#    Updated: 2022/09/12 17:15:32 by coder            ###   ########.fr        #
+#    Updated: 2022/09/13 17:30:57 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,3 +103,7 @@ fclean:
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+so:
+	gcc -fPIC $(CFLAGS) $(SRCS)
+	gcc -shared -o libft.so $(OBJS)
