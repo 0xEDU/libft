@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:51:38 by coder             #+#    #+#              #
-#    Updated: 2022/09/13 21:37:50 by coder            ###   ########.fr        #
+#    Updated: 2022/09/14 19:23:13 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,22 @@ OBJS = ft_atoi.o       \
 	   ft_tolower.o    \
 	   ft_toupper.o 
 
+B_SRCS = ft_lstnew.c       \
+		 ft_lstadd_back.c  \
+		 ft_lstadd_front.c \
+		 ft_lstsize.c      \
+		 ft_lstlast.c      \
+		 ft_lstdelone.c    \
+		 ft_lstclear.c
+
+B_OBJS = ft_lstnew.o       \
+		 ft_lstadd_back.o  \
+		 ft_lstadd_front.o \
+		 ft_lstsize.o      \
+		 ft_lstlast.o      \
+		 ft_lstdelone.o    \
+		 ft_lstclear.o
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -95,6 +111,12 @@ $(NAME): $(OBJS)
 
 $(OBJS): $(SRCS)
 	cc $(CCFLAGS) -I $(PATH_INCL) -c $(SRCS)
+
+bonus: $(NAME) $(B_OBJS)
+
+$(B_OBJS): $(B_SRC)
+	cc $(CCFLAGS) -c $(B_SRCS) -I $(PATH_SRCS)
+	ar rcs $(NAME) $(B_OBJS)
 
 clean:
 	/bin/rm -f *.o
@@ -104,6 +126,4 @@ fclean:
 
 re: fclean all
 
-so:
-	gcc -fPIC $(CFLAGS) $(SRCS)
-	gcc -shared -o libft.so $(OBJS)
+re_bonus: fclean bonus
