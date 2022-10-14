@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:45:27 by coder             #+#    #+#             */
-/*   Updated: 2022/09/27 10:18:34 by coder            ###   ########.fr       */
+/*   Updated: 2022/10/14 16:06:29 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	*ft_calloc(size_t count, size_t size)
 	return (p);
 }
 
-int	ft_strchr(const char *s, char c)
+int	gnl_strchr(const char *s, char c)
 {
 	int	i;
 
@@ -108,7 +108,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (ret);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*new;
 	size_t	size;

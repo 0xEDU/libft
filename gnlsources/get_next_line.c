@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:44:35 by coder             #+#    #+#             */
-/*   Updated: 2022/09/27 10:39:12 by coder            ###   ########.fr       */
+/*   Updated: 2022/10/14 16:05:45 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ static char	*set_buffer(int fd, char *buffer)
 	tmp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (tmp == NULL)
 		return (NULL);
-	while (ft_strchr(buffer, '\n') != 1)
+	while (gnl_strchr(buffer, '\n') != 1)
 	{
 		i = read(fd, tmp, BUFFER_SIZE);
 		if (i == 0 || i == -1)
 			break ;
 		tmp[i] = '\0';
-		buffer = ft_strjoin(buffer, tmp);
+		buffer = gnl_strjoin(buffer, tmp);
 		if (buffer == NULL)
 		{
 			free(tmp);
