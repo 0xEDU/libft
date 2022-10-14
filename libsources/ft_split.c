@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:38:43 by coder             #+#    #+#             */
-/*   Updated: 2022/09/13 17:00:07 by coder            ###   ########.fr       */
+/*   Updated: 2022/10/14 15:10:48 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ static size_t	special_strlen(char const *s, char c);
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
-	size_t	j;
 	size_t	k;
 	char	**mrx;
 
-	j = 0;
 	k = 0;
 	i = get_words(s, c);
 	mrx = (char **) ft_calloc(i + 1, sizeof(char *));

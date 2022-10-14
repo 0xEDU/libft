@@ -6,19 +6,21 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:51:38 by coder             #+#    #+#              #
-#    Updated: 2022/09/14 19:23:13 by coder            ###   ########.fr        #
+#    Updated: 2022/10/14 15:50:58 by edu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-PATH_SRCS = ./
-PATH_INCL = ./
-PATH_OBJS = ./
+PATH_LIBSRCS = libsources
+PATH_GNLSRCS = gnlsources
+PATH_FT_PRINTFSRCS = ft_printfsources
+PATH_INCL = includes
+PATH_OBJS = .
 
 CCFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(addprefix $(PATH_SRCS), ft_atoi.c \
+LIBSRCS = $(addprefix $(PATH_LIBSRCS)/, ft_atoi.c \
 	   ft_bzero.c      \
 	   ft_calloc.c     \
 	   ft_isalnum.c    \
@@ -53,77 +55,39 @@ SRCS = $(addprefix $(PATH_SRCS), ft_atoi.c \
 	   ft_tolower.c    \
 	   ft_toupper.c)
 
-OBJS = ft_atoi.o       \
-	   ft_bzero.o      \
-	   ft_calloc.o     \
-	   ft_isalnum.o    \
-	   ft_isalpha.o    \
-	   ft_isascii.o    \
-	   ft_isdigit.o    \
-	   ft_isprint.o    \
-	   ft_itoa.o       \
-	   ft_memchr.o     \
-	   ft_memcmp.o     \
-	   ft_memcpy.o     \
-	   ft_memmove.o    \
-	   ft_memset.o     \
-	   ft_putchar_fd.o \
-	   ft_putendl_fd.o \
-	   ft_putnbr_fd.o  \
-	   ft_putstr_fd.o  \
-	   ft_strmapi.o    \
-	   ft_split.o      \
-	   ft_strchr.o     \
-	   ft_strdup.o     \
-	   ft_striteri.o   \
-	   ft_strjoin.o    \
-	   ft_strlcat.o    \
-	   ft_strlcpy.o    \
-	   ft_strlen.o     \
-	   ft_strncmp.o    \
-	   ft_strnstr.o    \
-	   ft_strrchr.o    \
-	   ft_strtrim.o    \
-	   ft_substr.o     \
-	   ft_tolower.o    \
-	   ft_toupper.o 
+GNLSRCS = $(addprefix $(PATH_GNLSRCS)/, get_next_line.c \
+	   get_next_line_utils.c)
 
-B_SRCS = ft_lstnew.c       \
-		 ft_lstadd_back.c  \
-		 ft_lstadd_front.c \
-		 ft_lstsize.c      \
-		 ft_lstlast.c      \
-		 ft_lstdelone.c    \
-		 ft_lstclear.c
+FT_PRINTFSRCS = $(addprefix $(PATH_FT_PRINTFSRCS)/, ft_printf.c \
+				ft_printf_utils.c \
+				ft_putchar.c \
+				ft_putnbr.c \
+				ft_putnbr_hex.c \
+				ft_putstr.c)
 
-B_OBJS = ft_lstnew.o       \
-		 ft_lstadd_back.o  \
-		 ft_lstadd_front.o \
-		 ft_lstsize.o      \
-		 ft_lstlast.o      \
-		 ft_lstdelone.o    \
-		 ft_lstclear.o
+LIBOBJS = $(LIBSRCS:$(PATH_LIBSRCS)/%.c=$(PATH_OBJS)/%.o)
+GNLOBJS = $(GNLSRCS:$(PATH_GNLSRCS)/%.c=$(PATH_OBJS)/%.o)
+FT_PRINTFOBJS = $(FT_PRINTFSRCS:$(PATH_FT_PRINTFSRCS)/%.c=$(PATH_OBJS)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(NAME): $(LIBOBJS) $(GNLOBJS) $(FT_PRINTFOBJS)
+	ar rcs $(NAME) $(LIBOBJS) $(GNLOBJS) $(FT_PRINTFOBJS)
+	@rm -f $(LIBOBJS) $(GNLOBJS) $(FT_PRINTFOBJS)
 
-$(OBJS): $(SRCS)
-	cc $(CCFLAGS) -I $(PATH_INCL) -c $(SRCS)
+$(LIBOBJS): $(LIBSRCS)
+	$(CC) $(CCFLAGS) -I $(PATH_INCL)/ -c $(LIBSRCS)
 
-bonus: $(NAME) $(B_OBJS)
+$(GNLOBJS): $(GNLSRCS)
+	$(CC) $(CCFLAGS) -D BUFFER_SIZE=1 -I $(PATH_INCL)/ -c $(GNLSRCS)
 
-$(B_OBJS): $(B_SRC)
-	cc $(CCFLAGS) -c $(B_SRCS) -I $(PATH_SRCS)
-	ar rcs $(NAME) $(B_OBJS)
+$(FT_PRINTFOBJS): $(FT_PRINTFSRCS)
+	$(CC) $(CCFLAGS) -I $(PATH_INCL)/ -c $(FT_PRINTFSRCS)
 
 clean:
 	/bin/rm -f *.o
 
-fclean:
+fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
-
-re_bonus: fclean bonus
