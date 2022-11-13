@@ -6,40 +6,11 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 19:45:27 by coder             #+#    #+#             */
-/*   Updated: 2022/10/14 16:06:29 by edu              ###   ########.fr       */
+/*   Updated: 2022/11/13 08:16:06 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	size_t			i;
-	unsigned char	*p;
-
-	i = 0;
-	p = 0;
-	if (!size || !count)
-		return (malloc(0));
-	if (size > 2147483647 / count)
-		return (NULL);
-	p = malloc(count * size);
-	if (p == NULL)
-		return (p);
-	while (i < size * count)
-		p[i++] = '\0';
-	return (p);
-}
 
 int	gnl_strchr(const char *s, char c)
 {
