@@ -6,7 +6,7 @@
 #    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:51:38 by coder             #+#    #+#              #
-#    Updated: 2022/10/14 15:50:58 by edu              ###   ########.fr        #
+#    Updated: 2022/11/13 08:08:06 by etachott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libft.a
 PATH_LIBSRCS = libsources
 PATH_GNLSRCS = gnlsources
 PATH_FT_PRINTFSRCS = ft_printfsources
+PATH_LLSRCS = llsources
 PATH_INCL = includes
 PATH_OBJS = .
 
@@ -65,15 +66,25 @@ FT_PRINTFSRCS = $(addprefix $(PATH_FT_PRINTFSRCS)/, ft_printf.c \
 				ft_putnbr_hex.c \
 				ft_putstr.c)
 
+LLSRCS = $(addprefix $(PATH_LLSRCS)/, ft_lstadd_back.c \
+		 ft_lstadd_front.c \
+		 ft_lstclear.c     \
+		 ft_lstdelone.c    \
+		 ft_lstiter.c      \
+		 ft_lstlast.c      \
+		 ft_lstmap.c       \
+		 ft_lstnew.c       \
+		 ft_lstsize.c)
+
 LIBOBJS = $(LIBSRCS:$(PATH_LIBSRCS)/%.c=$(PATH_OBJS)/%.o)
 GNLOBJS = $(GNLSRCS:$(PATH_GNLSRCS)/%.c=$(PATH_OBJS)/%.o)
 FT_PRINTFOBJS = $(FT_PRINTFSRCS:$(PATH_FT_PRINTFSRCS)/%.c=$(PATH_OBJS)/%.o)
+LLOBJS = $(LLSRCS:$(PATH_LLSRCS)/%.c=$(PATH_OBJS)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(LIBOBJS) $(GNLOBJS) $(FT_PRINTFOBJS)
+$(NAME): $(LIBOBJS) $(GNLOBJS) $(FT_PRINTFOBJS) $(LLOBJS)
 	ar rcs $(NAME) $(LIBOBJS) $(GNLOBJS) $(FT_PRINTFOBJS)
-	@rm -f $(LIBOBJS) $(GNLOBJS) $(FT_PRINTFOBJS)
 
 $(LIBOBJS): $(LIBSRCS)
 	$(CC) $(CCFLAGS) -I $(PATH_INCL)/ -c $(LIBSRCS)
@@ -83,6 +94,9 @@ $(GNLOBJS): $(GNLSRCS)
 
 $(FT_PRINTFOBJS): $(FT_PRINTFSRCS)
 	$(CC) $(CCFLAGS) -I $(PATH_INCL)/ -c $(FT_PRINTFSRCS)
+	
+$(LLOBJS): $(LLSRCS)
+	$(CC) $(CCFLAGS) -I $(PATH_INCL)/ -c $(LLSRCS)
 
 clean:
 	/bin/rm -f *.o
@@ -91,3 +105,5 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+.PHONY = all clean fclean re
