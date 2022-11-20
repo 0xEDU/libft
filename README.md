@@ -5,6 +5,9 @@
 <p align="center">
 	<b><i>Your very first own library.</i></b><br>
 </p>
+<a>
+<img src="./images/ft_printfe.png" alt="Aprendendo a escrever..." width="150" height="150">
+</a>
 
 ## Summary
 > This project is about coding a C library.
