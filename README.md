@@ -5,19 +5,17 @@
 <p align="center">
 	<b><i>Your very first own library.</i></b><br>
 </p>
-<a>
-<img src="./images/ft_printfe.png" alt="Aprendendo a escrever..." width="150" height="150">
-</a>
 
 ## Summary
-> This project is about coding a C library.
-> It will contain a lot of general purpose functions your programs will rely upon.
+> This project is about coding a C library that will be used in future projects.
+> It will contain a lot of useful general purpose functions.
+> This version of Libft also includes ft_printf and get_next_line projects.
 
 ## Getting started
 First, clone this repository and `cd` into it:
 
 ```zsh
-$ git clone https://github.com/riceset/libft; cd libft
+$ git clone https://github.com/0xEDU/libft; cd libft
 ```
 
 Compile the library with:
@@ -25,10 +23,3 @@ Compile the library with:
 ```zsh
 $ make
 ```
-
-Or use the following command to compile it with the bonus files:
-
-```zsh
-$ make bonus
-```
-
