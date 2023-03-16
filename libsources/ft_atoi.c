@@ -6,14 +6,15 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 19:54:52 by coder             #+#    #+#             */
-/*   Updated: 2023/03/16 12:15:17 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 12:18:19 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /* 
-*	Convert a string to an integer.
+*	Convert a string representation of a number to an integer.
+*	NOTE: If the input string is greater than MAX_INT,it WILL overflow.
 *
 *	@param char	*str: Pointer to a string.
 *
