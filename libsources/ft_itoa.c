@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 15:15:34 by etachott          #+#    #+#             */
-/*   Updated: 2023/03/16 14:39:59 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 14:48:09 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ static size_t	get_digits(int n)
 	return (i);
 }
 
+/*
+*	Convert an integer to string and return it. It allocates the size of the
+*	number and then insterts the number recursively in the string.
+*
+*	@param int	n: Integer to be converted.
+*
+*	@return char	*str: String containg the number converted.
+*/
 char	*ft_itoa(int n)
 {
 	char		*str;
