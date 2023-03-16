@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:38:43 by coder             #+#    #+#             */
-/*   Updated: 2023/03/16 15:57:50 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 16:00:20 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ static size_t	get_word_length(char const *s, char c)
 	return (i);
 }
 
+/*
+*	Split a string s in a matrix of strings using character c as delimiter.
+*
+*	@param char const	*s: The string to be split;
+*	@param char	c: The caracter used as delimiter.
+*
+*	@return char	**matrix: Matrix containing the splitted string.
+*	Each element of the matrix is a string.
+*/
 char	**ft_split(char const *s, char c)
 {
 	size_t	word_quantity;
