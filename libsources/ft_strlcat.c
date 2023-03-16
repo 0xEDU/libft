@@ -6,12 +6,22 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 20:25:05 by coder             #+#    #+#             */
-/*   Updated: 2023/03/16 17:04:30 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 17:13:18 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+*	Append the null-terminated string src at the end of null-terminated
+*	string dst. It will append at most dstsize - strlen(dst) - 1('\0') bytes.
+*
+*	@param char	*dst: Pointer to the destination string;
+*	@param const char	*src: Pointer to the source string;
+*	@param size_t	dstsize: Size of the destination buffer in bytes.
+*
+*	@return Length of the string they tried to create.
+*/
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	index;
