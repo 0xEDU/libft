@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 16:42:24 by coder             #+#    #+#             */
-/*   Updated: 2023/03/16 13:54:04 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 14:00:23 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 *
 *	@param int	c: The integer value to check.
 *
-*	@return If the character is alphanumeric, return a non-zero value
+*	@return If the character is alphanumeric return a non-zero value
 *	else, return 0.
 */
 int	ft_isalnum(int c)
