@@ -6,12 +6,19 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 19:54:52 by coder             #+#    #+#             */
-/*   Updated: 2023/03/16 11:39:23 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 12:15:17 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* 
+*	Convert a string to an integer.
+*
+*	@param char	*str: Pointer to a string.
+*
+*	@return int result: A integer that corresponds to the converted string.
+*/
 int	ft_atoi(const char *str)
 {
 	int	is_negative;
