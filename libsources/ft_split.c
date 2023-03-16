@@ -6,29 +6,29 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:38:43 by coder             #+#    #+#             */
-/*   Updated: 2022/10/14 15:10:48 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 15:55:54 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	get_words(char const *s, char c);
-static size_t	special_strlen(char const *s, char c);
+static size_t	get_word_quantity(char const *s, char c);
+static size_t	get_word_length(char const *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
+	size_t	word_quantity;
 	size_t	k;
-	char	**mrx;
+	char	**matrix;
 
 	k = 0;
-	i = get_words(s, c);
-	mrx = (char **) ft_calloc(i + 1, sizeof(char *));
+	i = get_word_quantity(s, c);
+	matrix = (char **) ft_calloc(i + 1, sizeof(char *));
 	while (*s)
 	{
 		if (*s != c)
 		{
-			mrx[k] = ft_substr(s, 0, special_strlen(s, c));
+			matrix[k] = ft_substr(s, 0, get_word_length(s, c));
 			s++;
 			k++;
 		}
@@ -37,10 +37,10 @@ char	**ft_split(char const *s, char c)
 		while (*s == c && *s)
 			s++;
 	}
-	return (mrx);
+	return (matrix);
 }
 
-static size_t	get_words(char const *s, char c)
+static size_t	get_word_quantity(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -59,7 +59,7 @@ static size_t	get_words(char const *s, char c)
 	return (i);
 }
 
-static size_t	special_strlen(char const *s, char c)
+static size_t	get_word_length(char const *s, char c)
 {
 	size_t	i;
 
