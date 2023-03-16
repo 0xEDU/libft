@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 19:54:52 by coder             #+#    #+#             */
-/*   Updated: 2022/08/30 20:39:02 by coder            ###   ########.fr       */
+/*   Updated: 2023/03/16 11:34:47 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 int	ft_atoi(const char *str)
 {
-	int	neg_counter;
-	int	final_num;
+	int	is_negative;
+	int	result;
 
-	neg_counter = 0;
-	final_num = 0;
+	is_negative = 1;
+	result = 0;
 	while (*str == ' ' || *str == '\t' || *str == '\r'
 		|| *str == '\n' || *str == '\f' || *str == '\v')
 		str++;
 	if (*str == 43 || *str == 45)
 	{
 		if (*str == 45)
-			neg_counter = 1;
+			is_negative = -1;
 		str++;
 	}
 	while (48 <= *str && *str <= 57)
 	{
-		final_num = (*str - 48) + (final_num * 10);
+		result = (*str - 48) + (result * 10);
 		str++;
 	}
-	if (neg_counter == 1)
-		return (final_num * -1);
-	else
-		return (final_num);
+	return (result * is_negative);
 }
