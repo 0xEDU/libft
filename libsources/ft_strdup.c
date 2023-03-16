@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:04:44 by coder             #+#    #+#             */
-/*   Updated: 2023/03/16 16:11:20 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 16:12:27 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ static char	*ft_strcpy(char *dst, const char *src)
 	return (dst);
 }
 
+/*
+*	Return an allocated copy of the string s1.
+*
+*	@param const char	*s1: The string to be copied.
+*
+*	@return Pointer to the allocated string.
+*/
 char	*ft_strdup(const char *s1)
 {
 	char	*k;
