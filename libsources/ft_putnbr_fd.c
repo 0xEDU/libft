@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 19:01:10 by coder             #+#    #+#             */
-/*   Updated: 2022/08/30 19:05:28 by coder            ###   ########.fr       */
+/*   Updated: 2023/03/16 15:47:20 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
-static int	check_min(int nb, int fd)
+static int	check_min(int n, int fd)
 {
-	if (nb == -2147483648)
+	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
 		return (0);
