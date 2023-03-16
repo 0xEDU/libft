@@ -6,39 +6,11 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:38:43 by coder             #+#    #+#             */
-/*   Updated: 2023/03/16 15:55:54 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 15:57:50 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static size_t	get_word_quantity(char const *s, char c);
-static size_t	get_word_length(char const *s, char c);
-
-char	**ft_split(char const *s, char c)
-{
-	size_t	word_quantity;
-	size_t	k;
-	char	**matrix;
-
-	k = 0;
-	i = get_word_quantity(s, c);
-	matrix = (char **) ft_calloc(i + 1, sizeof(char *));
-	while (*s)
-	{
-		if (*s != c)
-		{
-			matrix[k] = ft_substr(s, 0, get_word_length(s, c));
-			s++;
-			k++;
-		}
-		while (*s != c && *s)
-			s++;
-		while (*s == c && *s)
-			s++;
-	}
-	return (matrix);
-}
 
 static size_t	get_word_quantity(char const *s, char c)
 {
@@ -67,4 +39,29 @@ static size_t	get_word_length(char const *s, char c)
 	while (s[i] != c && s[i])
 		i++;
 	return (i);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	word_quantity;
+	size_t	index;
+	char	**matrix;
+
+	index = 0;
+	word_quantity = get_word_quantity(s, c);
+	matrix = (char **) ft_calloc(word_quantity + 1, sizeof(char *));
+	while (*s)
+	{
+		if (*s != c)
+		{
+			matrix[index] = ft_substr(s, 0, get_word_length(s, c));
+			s++;
+			index++;
+		}
+		while (*s != c && *s)
+			s++;
+		while (*s == c && *s)
+			s++;
+	}
+	return (matrix);
 }
