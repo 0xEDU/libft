@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 19:01:10 by coder             #+#    #+#             */
-/*   Updated: 2023/03/16 15:48:25 by edu              ###   ########.fr       */
+/*   Updated: 2023/03/16 15:49:43 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ static int	check_min(int n, int fd)
 		return (1);
 }
 
+/*
+*	Write a number n in the fd filedescriptor.
+*
+*	@param int	n: Number to be written;
+*	@param int	fd: Filedescriptor to write to.
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	num;
