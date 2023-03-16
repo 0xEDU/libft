@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 00:22:39 by coder             #+#    #+#             */
-/*   Updated: 2022/08/30 00:56:01 by coder            ###   ########.fr       */
+/*   Updated: 2023/03/16 14:53:54 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,14 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned int			i;
-	unsigned int			cont;
-	const unsigned	char	(*p);
+	const unsigned	char	*ptr = s;
 
-	i = 0;
-	cont = 0;
-	p = (const void *)s;
 	c = (unsigned char) c;
-	while (i < n)
+	while (n--)
 	{
-		if (p[i] == c)
-		{
-			cont += 1;
-			break ;
-		}
-		else
-			i++;
+		if (*ptr == c)
+			return (void *)ptr;
+		ptr++;
 	}
-	if (cont)
-		return ((void *)s + i);
-	else
-		return (NULL);
+	return (NULL);
 }
