@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_atoi_hex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:42:36 by etachott          #+#    #+#             */
-/*   Updated: 2022/11/04 15:20:01 by etachott         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:44:26 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 int	ft_atoi_hex(const char *str)
 {
-	int		i;
-	int		neg;
-	int		res;
+	int		index;
+	int		is_negative;
+	int		result;
 
-	i = 0;
-	neg = 1;
-	res = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	while (str[i])
+	index = 0;
+	is_negative = 1;
+	result = 0;
+	while (str[index] == ' ' || str[index] == '\t' || str[index] == '\n'
+		|| str[index] == '\v' || str[index] == '\f' || str[index] == '\r')
+		index++;
+	while (str[index])
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-			res = res * 16 + str[i] - '0';
-		else if (str[i] >= 'A' && str[i] <= 'F')
-			res = res * 16 + str[i] - 'A' + 10;
-		else if (str[i] >= 'a' && str[i] <= 'f')
-			res = res * 16 + str[i] - 'a' + 10;
+		if (str[index] >= '0' && str[index] <= '9')
+			result = result * 16 + str[index] - '0';
+		else if (str[index] >= 'A' && str[index] <= 'F')
+			result = result * 16 + str[index] - 'A' + 10;
+		else if (str[index] >= 'a' && str[index] <= 'f')
+			result = result * 16 + str[index] - 'a' + 10;
 		else
-			return (res * neg);
-		i++;
+			return (result * is_negative);
+		index++;
 	}
-	return (res * neg);
+	return (result * is_negative);
 }
