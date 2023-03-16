@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 19:03:49 by coder             #+#    #+#             */
-/*   Updated: 2022/08/27 21:42:14 by coder            ###   ########.fr       */
+/*   Updated: 2023/03/16 15:36:18 by edu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned int	i;
-	unsigned char	*p;
+	unsigned int	index;
+	unsigned char	*ptr;
 
-	p = s;
-	i = 0;
-	while (i < n)
+	ptr = s;
+	index = 0;
+	while (index < n)
 	{
-		p[i] = c;
-		i++;
+		ptr[index] = c;
+		index++;
 	}
 	return (s);
 }
