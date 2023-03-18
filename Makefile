@@ -60,6 +60,7 @@ GNLSRCS = $(addprefix $(PATH_GNLSRCS)/, get_next_line.c \
 	   get_next_line_utils.c)
 
 FT_PRINTFSRCS = $(addprefix $(PATH_FT_PRINTFSRCS)/, ft_printf.c \
+				ft_print.c \
 				ft_printf_utils.c \
 				ft_putchar.c \
 				ft_putnbr.c \
